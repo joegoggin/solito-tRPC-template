@@ -8,11 +8,10 @@ import { api } from "../../utils/trpc";
 export const TRPCProvider: React.FC<{ children: React.ReactNode }> = ({
 	children,
 }) => {
-	let links = [httpBatchLink({ url: API })];
-
-	if (Platform.OS === "web") {
-		links.push(loggerLink());
-	}
+	let links =
+		Platform.OS === "web"
+			? [loggerLink(), httpBatchLink({ url: API })]
+			: [httpBatchLink({ url: API })];
 
 	const [queryClient] = useState(() => new QueryClient());
 	const [trpcClient] = useState(() => api.createClient({ links }));
