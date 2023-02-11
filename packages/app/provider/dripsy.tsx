@@ -1,10 +1,26 @@
 import { DripsyProvider, makeTheme } from "dripsy";
 
+import { Colors } from "app/constants/Colors";
+
 const theme = makeTheme({
 	// https://www.dripsy.xyz/usage/theming/create
+	colors: {
+		blueDark: Colors.blueDark,
+		blueLight: Colors.blueLight,
+		white: Colors.white,
+		brown: Colors.brown,
+		green: Colors.green,
+	},
 	text: {
+		h1: {
+			color: Colors.green,
+		},
+		h3: {
+			color: Colors.brown,
+		},
 		p: {
 			fontSize: 16,
+			color: Colors.brown,
 		},
 	},
 });
