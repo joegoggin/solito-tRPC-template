@@ -11,10 +11,12 @@ const fixReanimatedIssue = () => {
 
 fixReanimatedIssue();
 
-import { Provider } from "app/provider";
+import type { SolitoAppProps } from "solito";
 import Head from "next/head";
 import React from "react";
-import type { SolitoAppProps } from "solito";
+
+import { Provider } from "app/provider";
+import "../app.css";
 
 function MyApp({ Component, pageProps }: SolitoAppProps) {
 	return (
