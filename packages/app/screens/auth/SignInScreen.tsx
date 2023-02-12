@@ -2,15 +2,13 @@ import { H1, useSx, View } from "dripsy";
 import React, { useState } from "react";
 
 import { handleChangeText } from "app/utils/handleChangeText";
+import { Colors } from "app/constants/Colors";
 import Layout from "app/components/UI/Layout";
 import Form from "app/components/UI/Form";
 import CustomTextInput from "app/components/UI/CustomTextInput";
 import Button from "app/components/UI/Button";
-import { Colors } from "app/constants/Colors";
 
-interface SignInScreenProps {}
-
-const SignInScreen: React.FC<SignInScreenProps> = () => {
+const SignInScreen: React.FC = () => {
 	// state
 	const [username, setUsername] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
