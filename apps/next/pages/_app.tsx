@@ -22,10 +22,10 @@ function MyApp({ Component, pageProps }: SolitoAppProps) {
 	return (
 		<>
 			<Head>
-				<title>Solito Example App</title>
+				<title>Solito App With tRPC Template</title>
 				<meta
 					name="description"
-					content="Expo + Next.js with Solito. By Fernando Rojo."
+					content="A template for a Solito app using tRPC with Next JS and Expo."
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
