@@ -74,3 +74,4 @@ build/**
 
 # env
 env.ts
+.env

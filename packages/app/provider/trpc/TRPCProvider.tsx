@@ -1,9 +1,10 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { httpBatchLink, loggerLink } from "@trpc/client";
-import React, { useState } from "react";
 import { Platform } from "react-native";
-import { API } from "../../../../env";
-import { api } from "../../utils/trpc";
+import React, { useState } from "react";
+
+import { api } from "app/utils/trpc";
+import { API } from "app/env";
 
 export const TRPCProvider: React.FC<{ children: React.ReactNode }> = ({
 	children,
