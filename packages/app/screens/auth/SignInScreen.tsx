@@ -7,11 +7,42 @@ import Layout from "app/components/UI/Layout";
 import Form from "app/components/UI/Form";
 import CustomTextInput from "app/components/UI/CustomTextInput";
 import Button from "app/components/UI/Button";
+import { api } from "app/utils/trpc";
+import { onError } from "app/utils/onError";
+import { useStatus } from "app/provider/context/StatusContextProvider";
+import { useUser } from "app/provider/context/UserContextProvider";
 
 const SignInScreen: React.FC = () => {
 	// state
-	const [username, setUsername] = useState<string>("");
+	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
+
+	// context
+	const { setLoading, setError } = useStatus();
+	const { setUserData } = useUser();
+
+	// mutations
+	const signIn = api.auth.signIn.useMutation({
+		onError: onError(setError),
+	});
+
+	// event handlers
+	const handleSignIn = async () => {
+		setLoading(true);
+
+		try {
+			const { userId, token } = await signIn.mutateAsync({
+				email,
+				password,
+			});
+
+			if (userId && token) {
+				setUserData(userId, token);
+			}
+		} catch {
+			setLoading(false);
+		}
+	};
 
 	// styles
 	const sx = useSx();
@@ -20,7 +51,7 @@ const SignInScreen: React.FC = () => {
 		title: sx({
 			marginBottom: 30,
 		}),
-		username: sx({
+		email: sx({
 			marginBottom: 20,
 		}),
 		password: sx({
@@ -38,12 +69,12 @@ const SignInScreen: React.FC = () => {
 	return (
 		<Layout>
 			<H1>Sign In</H1>
-			<Form onSubmit={() => {}}>
+			<Form onSubmit={handleSignIn}>
 				<CustomTextInput
-					style={styles.username}
-					placeholder="Username"
-					value={username}
-					onChangeText={handleChangeText(setUsername)}
+					style={styles.email}
+					placeholder="Email"
+					value={email}
+					onChangeText={handleChangeText(setEmail)}
 				/>
 				<CustomTextInput
 					style={styles.password}
@@ -55,7 +86,7 @@ const SignInScreen: React.FC = () => {
 				<View style={styles.buttonContainer}>
 					<Button
 						style={styles.button}
-						onPress={() => {}}
+						onPress={handleSignIn}
 						color={Colors.blueDark}
 					>
 						Sign In

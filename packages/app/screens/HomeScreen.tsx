@@ -1,10 +1,10 @@
-import { useSx, View, H1, P, Row, A, H3 } from "dripsy";
+import { useSx, View, H1, H3 } from "dripsy";
 
 import { api } from "app/utils/trpc";
 import { Colors } from "app/constants/Colors";
+import { useRouter } from "solito/router";
 import Button from "app/components/UI/Button";
 import Layout from "app/components/UI/Layout";
-import { useRouter } from "solito/router";
 
 const HomeScreen: React.FC = () => {
 	// queries

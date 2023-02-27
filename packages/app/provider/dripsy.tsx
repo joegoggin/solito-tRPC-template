@@ -10,6 +10,8 @@ const theme = makeTheme({
 		white: Colors.white,
 		brown: Colors.brown,
 		green: Colors.green,
+		greenLight: Colors.greenLight,
+		red: Colors.red,
 	},
 	text: {
 		h1: {

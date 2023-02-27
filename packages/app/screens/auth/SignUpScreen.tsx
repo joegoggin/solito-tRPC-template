@@ -1,19 +1,68 @@
+import { H1, useSx, View } from "dripsy";
+import React, { useState } from "react";
+
+import { handleChangeText } from "app/utils/handleChangeText";
+import { Colors } from "app/constants/Colors";
+import { api } from "app/utils/trpc";
+import { useStatus } from "app/provider/context/StatusContextProvider";
+import { onError } from "app/utils/onError";
+import { useUser } from "app/provider/context/UserContextProvider";
+import { RoleEnum } from "server/models/enums/Role";
+import { capitalize } from "app/utils/capitalize";
+import Button from "app/components/UI/Button";
+import StatusMessages from "app/components/UI/StatusMessages";
 import CustomTextInput from "app/components/UI/CustomTextInput";
 import Form from "app/components/UI/Form";
 import Layout from "app/components/UI/Layout";
-import { handleChangeText } from "app/utils/handleChangeText";
-import { H1, useSx, View } from "dripsy";
-import React, { useState } from "react";
-import { Colors } from "app/constants/Colors";
-import Button from "app/components/UI/Button";
 
 const SignUpScreen: React.FC = () => {
 	// state
 	const [fName, setFName] = useState<string>("");
 	const [lName, setLName] = useState<string>("");
-	const [username, setUsername] = useState<string>("");
+	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
 	const [confirm, setConfirm] = useState<string>("");
+
+	// context
+	const { setLoading, setError } = useStatus();
+	const { setUserData } = useUser();
+
+	// mutation
+	const createUser = api.user.createUser.useMutation({
+		onError: onError(setError),
+	});
+	const signIn = api.auth.signIn.useMutation({
+		onError: onError(setError),
+	});
+
+	// event handlers
+	const handleSignUp = async () => {
+		setLoading(true);
+
+		try {
+			const { user } = await createUser.mutateAsync({
+				fName: capitalize(fName),
+				lName: capitalize(lName),
+				email,
+				password,
+				confirm,
+				role: RoleEnum.enum.User,
+			});
+
+			if (user) {
+				const { userId, token } = await signIn.mutateAsync({
+					email,
+					password,
+				});
+
+				if (userId && token) {
+					setUserData(userId, token);
+				}
+			}
+		} catch {
+			setLoading(false);
+		}
+	};
 
 	// styles
 	const sx = useSx();
@@ -33,7 +82,7 @@ const SignUpScreen: React.FC = () => {
 			marginBottom: 20,
 		}),
 		name: sx({
-			width: "40%",
+			width: "45%",
 		}),
 		buttonContainer: sx({
 			justifyContent: "center",
@@ -47,7 +96,8 @@ const SignUpScreen: React.FC = () => {
 	return (
 		<Layout>
 			<H1>Sign Up</H1>
-			<Form onSubmit={() => {}}>
+			<StatusMessages />
+			<Form onSubmit={handleSignUp}>
 				<View style={styles.inputContainer}>
 					<View sx={styles.nameContainer}>
 						<CustomTextInput
@@ -65,26 +115,28 @@ const SignUpScreen: React.FC = () => {
 					</View>
 					<CustomTextInput
 						style={styles.input}
-						placeholder="Username"
-						value={username}
-						onChangeText={handleChangeText(setUsername)}
+						placeholder="Email"
+						value={email}
+						onChangeText={handleChangeText(setEmail)}
 					/>
 					<CustomTextInput
 						style={styles.input}
 						placeholder="Password"
 						value={password}
 						onChangeText={handleChangeText(setPassword)}
+						isPassword={true}
 					/>
 					<CustomTextInput
 						placeholder="Confirm Password"
 						value={confirm}
 						onChangeText={handleChangeText(setConfirm)}
+						isPassword={true}
 					/>
 				</View>
 				<View style={styles.buttonContainer}>
 					<Button
 						style={styles.button}
-						onPress={() => {}}
+						onPress={handleSignUp}
 						color={Colors.blueDark}
 					>
 						Sign Up
