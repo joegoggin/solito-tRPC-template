@@ -8,7 +8,12 @@ import { JWT_SECRET } from "server/env";
 
 export const authRouter = createTRPCRouter({
 	signIn: publicProcedure
-		.input(z.object({ email: z.string(), password: z.string() }))
+		.input(
+			z.object({
+				email: z.string().min(1, "Email is required!"),
+				password: z.string().min(1, "Password is required!"),
+			})
+		)
 		.mutation(async ({ ctx, input }) => {
 			const { email, password } = input;
 

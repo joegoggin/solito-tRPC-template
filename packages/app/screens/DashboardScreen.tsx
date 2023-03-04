@@ -1,7 +1,9 @@
 import { H1, Text, useSx, View } from "dripsy";
 
 import { useUser } from "app/provider/context/UserContextProvider";
+import { Colors } from "app/constants/Colors";
 import Layout from "app/components/UI/Layout";
+import Button from "app/components/UI/Button";
 
 /*
  ** TODO **
@@ -11,12 +13,15 @@ import Layout from "app/components/UI/Layout";
 
 const Dashboard: React.FC = () => {
 	// context
-	const { user } = useUser();
+	const { user, clearUserData } = useUser();
 
 	// styles
 	const sx = useSx();
 
 	const styles = {
+		infoContainer: sx({
+			marginBottom: 20,
+		}),
 		textContainer: sx({
 			flexDirection: "row",
 			alignSelf: "flex-start",
@@ -37,7 +42,7 @@ const Dashboard: React.FC = () => {
 	return (
 		<Layout>
 			<H1>Welcome {user?.fName}!</H1>
-			<View>
+			<View style={styles.infoContainer}>
 				<View sx={styles.textContainer}>
 					<Text sx={styles.key}>First Name:</Text>
 					<Text sx={styles.value}>{user?.fName}</Text>
@@ -55,6 +60,9 @@ const Dashboard: React.FC = () => {
 					<Text sx={styles.value}>{user?.role}</Text>
 				</View>
 			</View>
+			<Button color={Colors.brown} onPress={clearUserData}>
+				Sign Out
+			</Button>
 		</Layout>
 	);
 };

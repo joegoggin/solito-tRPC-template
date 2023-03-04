@@ -5,6 +5,7 @@ import { z } from "zod";
 import { hashPassword } from "server/utils/auth";
 import { UserSchema } from "server/models/interfaces/User";
 import { createTRPCRouter, privateProcedure, publicProcedure } from "../trpc";
+import { validateEmail } from "../../utils/validation";
 
 const select = {
 	id: true,
@@ -24,6 +25,15 @@ export const userRouter = createTRPCRouter({
 					throw new TRPCError({
 						code: "BAD_REQUEST",
 						message: "Password and confirm password dont match.",
+					});
+				}
+
+				const emaiIsValid = validateEmail(email);
+
+				if (!emaiIsValid) {
+					throw new TRPCError({
+						code: "BAD_REQUEST",
+						message: "Email is invalid!",
 					});
 				}
 

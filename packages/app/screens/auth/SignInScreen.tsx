@@ -11,6 +11,7 @@ import { api } from "app/utils/trpc";
 import { onError } from "app/utils/onError";
 import { useStatus } from "app/provider/context/StatusContextProvider";
 import { useUser } from "app/provider/context/UserContextProvider";
+import StatusMessages from "app/components/UI/StatusMessages";
 
 const SignInScreen: React.FC = () => {
 	// state
@@ -70,6 +71,7 @@ const SignInScreen: React.FC = () => {
 		<Layout>
 			<H1>Sign In</H1>
 			<Form onSubmit={handleSignIn}>
+				<StatusMessages />
 				<CustomTextInput
 					style={styles.email}
 					placeholder="Email"
