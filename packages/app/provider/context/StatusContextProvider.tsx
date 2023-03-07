@@ -57,7 +57,7 @@ const StatusContextProvider: React.FC<{ children: ReactNode }> = ({
 			const timer = setTimeout(() => {
 				setError(null);
 				setSuccess(null);
-			}, 5000);
+			}, 3000);
 
 			return () => clearTimeout(timer);
 		}

@@ -4,16 +4,12 @@ import { useUser } from "app/provider/context/UserContextProvider";
 import { Colors } from "app/constants/Colors";
 import Layout from "app/components/UI/Layout";
 import Button from "app/components/UI/Button";
+import { useColors } from "app/provider/context/ColorsContextProvider";
 
-/*
- ** TODO **
- ** add sign out []
- ** handle routing on native []
- */
-
-const Dashboard: React.FC = () => {
+const DashboardScreen: React.FC = () => {
 	// context
 	const { user, clearUserData } = useUser();
+	const { colors } = useColors();
 
 	// styles
 	const sx = useSx();
@@ -60,11 +56,11 @@ const Dashboard: React.FC = () => {
 					<Text sx={styles.value}>{user?.role}</Text>
 				</View>
 			</View>
-			<Button color={Colors.brown} onPress={clearUserData}>
+			<Button color={colors.brown} onPress={clearUserData}>
 				Sign Out
 			</Button>
 		</Layout>
 	);
 };
 
-export default Dashboard;
+export default DashboardScreen;

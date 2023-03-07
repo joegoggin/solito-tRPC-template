@@ -5,8 +5,12 @@ import { Colors } from "app/constants/Colors";
 import { useRouter } from "solito/router";
 import Button from "app/components/UI/Button";
 import Layout from "app/components/UI/Layout";
+import { useColors } from "app/provider/context/ColorsContextProvider";
 
 const HomeScreen: React.FC = () => {
+	// context
+	const { colors } = useColors();
+
 	// queries
 	const { data } = api.hello.sayHi.useQuery();
 
@@ -49,13 +53,13 @@ const HomeScreen: React.FC = () => {
 			<H3 sx={styles.message}>{data?.message}</H3>
 			<View sx={styles.buttons}>
 				<Button
-					color={Colors.blueDark}
+					color={colors.blueDark}
 					onPress={handleSignUpNavigation}
 				>
 					Sign Up
 				</Button>
 				<Button
-					color={Colors.blueLight}
+					color={colors.blueLight}
 					onPress={handleSignInNavigation}
 				>
 					Sign In

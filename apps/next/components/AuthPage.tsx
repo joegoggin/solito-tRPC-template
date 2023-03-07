@@ -3,6 +3,7 @@ import React, { type ReactNode, useEffect, useState } from "react";
 
 import { useUser } from "app/provider/context/UserContextProvider";
 import { Colors } from "app/constants/Colors";
+import { useColors } from "app/provider/context/ColorsContextProvider";
 import LoadingSpinner from "app/components/UI/LoadingSpinner";
 
 const AuthPage: React.FC<{ children: ReactNode }> = ({ children }) => {
@@ -11,6 +12,7 @@ const AuthPage: React.FC<{ children: ReactNode }> = ({ children }) => {
 
 	// context
 	const { isInit, user, token } = useUser();
+	const { colors } = useColors();
 
 	// router
 	const router = useRouter();
@@ -32,7 +34,7 @@ const AuthPage: React.FC<{ children: ReactNode }> = ({ children }) => {
 	}, [isInit, user, token]); // eslint-disable-line
 
 	if (loading) {
-		return <LoadingSpinner color={Colors.green} size="large" />;
+		return <LoadingSpinner color={colors.green} size="large" />;
 	}
 
 	return <>{children}</>;

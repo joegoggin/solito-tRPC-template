@@ -5,6 +5,7 @@ import { RoleEnum, type Role } from "server/models/enums/Role";
 import { useUser } from "app/provider/context/UserContextProvider";
 import { Colors } from "app/constants/Colors";
 import LoadingSpinner from "app/components/UI/LoadingSpinner";
+import { useColors } from "app/provider/context/ColorsContextProvider";
 
 interface PrivatePageProps {
 	role: Role | "All";
@@ -17,6 +18,7 @@ const PrivatePage: React.FC<PrivatePageProps> = ({ role, children }) => {
 
 	// context
 	const { isInit, user, token } = useUser();
+	const { colors } = useColors();
 
 	// router
 	const router = useRouter();
@@ -46,7 +48,7 @@ const PrivatePage: React.FC<PrivatePageProps> = ({ role, children }) => {
 	}, [isInit, user, token, role]); // eslint-disable-line
 
 	if (loading) {
-		return <LoadingSpinner color={Colors.green} size="large" />;
+		return <LoadingSpinner color={colors.green} size="large" />;
 	}
 
 	return <>{children}</>;

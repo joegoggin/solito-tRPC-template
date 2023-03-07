@@ -3,6 +3,7 @@ import { TextInput, TextStyle, StyleSheet } from "react-native";
 import React, { useState } from "react";
 
 import { Colors } from "app/constants/Colors";
+import { useColors } from "app/provider/context/ColorsContextProvider";
 
 export interface CustomInputProps {
 	placeholder: string;
@@ -24,13 +25,20 @@ const CustomTextInput: React.FC<CustomInputProps> = ({
 	value,
 	onChangeText,
 	style,
-	color = Colors.green,
-	inputColor = Colors.brown,
+	color,
+	inputColor,
 	isPassword = false,
 	autoFocus = false,
 }) => {
 	// state
 	const [isFocused, setIsFocused] = useState(false);
+
+	// context
+	const { colors } = useColors();
+
+	// set defaults
+	color = color ? color : colors.green;
+	inputColor = inputColor ? inputColor : colors.brown;
 
 	// styles
 	const styles = StyleSheet.create({

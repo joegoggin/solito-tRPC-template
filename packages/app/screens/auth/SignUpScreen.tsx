@@ -47,6 +47,7 @@ const SignUpScreen: React.FC = () => {
 				password,
 				confirm,
 				role: RoleEnum.enum.User,
+				settings: { isDarkTheme: false },
 			});
 
 			if (user) {

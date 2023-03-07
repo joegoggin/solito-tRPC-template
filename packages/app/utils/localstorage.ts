@@ -8,7 +8,6 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 	them on user's device locally.
 */
 export const storeUserDataLocally = async (id: string, token: string) => {
-	console.log("storeUserDataLocally ran!");
 	if (Platform.OS === "web") {
 		localStorage.setItem("token", token);
 		localStorage.setItem("userId", id);

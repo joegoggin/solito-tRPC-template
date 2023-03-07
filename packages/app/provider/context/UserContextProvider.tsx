@@ -11,7 +11,7 @@ import {
 	getLocalUserData,
 	storeUserDataLocally,
 } from "app/utils/localstorage";
-import { User } from "server/models/interfaces/User";
+import { User } from "server/models/User";
 import { api } from "app/utils/trpc";
 import { useStatus } from "./StatusContextProvider";
 import { setAuthToken } from "../trpc/TRPCProvider";
@@ -44,7 +44,6 @@ const UserContextProvider: React.FC<{ children: ReactNode }> = ({
 	const [token, setToken] = useState<string | null>(null);
 	const [userId, setUserId] = useState<string | null>(null);
 	const [isInit, setIsInit] = useState<boolean>(false);
-	const [isAuth, setIsAuth] = useState<boolean>(false);
 
 	// context
 	const { setLoading } = useStatus();

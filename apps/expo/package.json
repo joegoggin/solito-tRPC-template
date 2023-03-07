@@ -1,7 +1,8 @@
 {
 	"dependencies": {
-		"app": "*",
 		"@react-native-async-storage/async-storage": "^1.17.11",
+		"@react-native-picker/picker": "2.4.2",
+		"app": "*",
 		"expo": "^46.0.0",
 		"expo-splash-screen": "~0.16.1",
 		"expo-status-bar": "~1.4.0",

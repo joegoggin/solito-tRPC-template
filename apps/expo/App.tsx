@@ -1,10 +1,10 @@
-import { NativeNavigation } from "app/navigation/native";
 import { Provider } from "app/provider";
+import NativeNavigator from "app/navigation/native";
 
 const App = () => {
 	return (
 		<Provider>
-			<NativeNavigation />
+			<NativeNavigator />
 		</Provider>
 	);
 };

@@ -1,21 +1,35 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Colors } from "app/constants/Colors";
+import { useUser } from "app/provider/context/UserContextProvider";
 
-import HomeScreen from "../../screens/HomeScreen";
-import AuthNavigation from "./AuthNavigaton";
+import AuthNavigator from "./AuthNavigator";
+import MainNavigator from "./MainNavigator";
 
 const Stack = createNativeStackNavigator<{
 	auth: undefined;
+	main: undefined;
 }>();
 
-export function NativeNavigation() {
+const NativeNavigator = () => {
+	// context
+	const { user, token } = useUser();
+
 	return (
 		<Stack.Navigator>
-			<Stack.Screen
-				name="auth"
-				component={AuthNavigation}
-				options={{ headerShown: false }}
-			/>
+			{!user && !token ? (
+				<Stack.Screen
+					name="auth"
+					component={AuthNavigator}
+					options={{ headerShown: false }}
+				/>
+			) : (
+				<Stack.Screen
+					name="main"
+					component={MainNavigator}
+					options={{ headerShown: false }}
+				/>
+			)}
 		</Stack.Navigator>
 	);
-}
+};
+
+export default NativeNavigator;

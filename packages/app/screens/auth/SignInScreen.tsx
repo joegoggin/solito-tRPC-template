@@ -12,6 +12,7 @@ import { onError } from "app/utils/onError";
 import { useStatus } from "app/provider/context/StatusContextProvider";
 import { useUser } from "app/provider/context/UserContextProvider";
 import StatusMessages from "app/components/UI/StatusMessages";
+import { useColors } from "app/provider/context/ColorsContextProvider";
 
 const SignInScreen: React.FC = () => {
 	// state
@@ -21,6 +22,7 @@ const SignInScreen: React.FC = () => {
 	// context
 	const { setLoading, setError } = useStatus();
 	const { setUserData } = useUser();
+	const { colors } = useColors();
 
 	// mutations
 	const signIn = api.auth.signIn.useMutation({
@@ -89,7 +91,7 @@ const SignInScreen: React.FC = () => {
 					<Button
 						style={styles.button}
 						onPress={handleSignIn}
-						color={Colors.blueDark}
+						color={colors.blueDark}
 					>
 						Sign In
 					</Button>

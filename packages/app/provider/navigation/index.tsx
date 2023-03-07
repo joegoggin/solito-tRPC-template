@@ -26,6 +26,13 @@ export function NavigationProvider({ children }: { children: ReactNode }) {
 										signUp: "sign-up",
 									},
 								},
+								main: {
+									screens: {
+										dashboard: "dashboard",
+										admin: "admin",
+										settings: "settings",
+									},
+								},
 							},
 						},
 					} as LinkingOptions<NavigationConfig>),

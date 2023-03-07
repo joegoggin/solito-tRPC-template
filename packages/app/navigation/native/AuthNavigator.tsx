@@ -1,8 +1,9 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { defaultStackScreenOptions } from "app/constants/defaultStackScreenOptions";
+import { getDefaultStackScreenOptions } from "app/constants/defaultStackScreenOptions";
+import { useColors } from "app/provider/context/ColorsContextProvider";
 import SignInScreen from "app/screens/auth/SignInScreen";
 import SignUpScreen from "app/screens/auth/SignUpScreen";
-import HomeScreen from "../../../../apps/next/pages";
+import HomeScreen from "app/screens/HomeScreen";
 
 const Stack = createNativeStackNavigator<{
 	home: undefined;
@@ -10,7 +11,10 @@ const Stack = createNativeStackNavigator<{
 	signUp: undefined;
 }>();
 
-const AuthNavigation = () => {
+const AuthNavigator = () => {
+	// context
+	const { colors } = useColors();
+
 	return (
 		<Stack.Navigator>
 			<Stack.Screen
@@ -21,15 +25,21 @@ const AuthNavigation = () => {
 			<Stack.Screen
 				name="signIn"
 				component={SignInScreen}
-				options={{ title: "Sign In", ...defaultStackScreenOptions }}
+				options={{
+					title: "Sign In",
+					...getDefaultStackScreenOptions(colors),
+				}}
 			/>
 			<Stack.Screen
 				name="signUp"
 				component={SignUpScreen}
-				options={{ title: "Sign Up", ...defaultStackScreenOptions }}
+				options={{
+					title: "Sign Up",
+					...getDefaultStackScreenOptions(colors),
+				}}
 			/>
 		</Stack.Navigator>
 	);
 };
 
-export default AuthNavigation;
+export default AuthNavigator;

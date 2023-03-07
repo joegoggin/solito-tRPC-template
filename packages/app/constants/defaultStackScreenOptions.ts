@@ -1,8 +1,9 @@
-import { NativeStackNavigationOptions } from "@react-navigation/native-stack";
-import { Colors } from "./Colors";
+import { type Colors } from "app/provider/context/ColorsContextProvider";
 
-export const defaultStackScreenOptions: NativeStackNavigationOptions = {
-	headerStyle: { backgroundColor: Colors.brown },
-	headerTitleStyle: { color: Colors.white },
-	headerTintColor: Colors.white,
+export const getDefaultStackScreenOptions = (colors: Colors) => {
+	return {
+		headerStyle: { backgroundColor: colors.brown },
+		headerTitleStyle: { color: colors.white },
+		headerTintColor: colors.white,
+	};
 };

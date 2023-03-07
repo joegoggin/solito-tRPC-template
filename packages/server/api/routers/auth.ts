@@ -10,8 +10,8 @@ export const authRouter = createTRPCRouter({
 	signIn: publicProcedure
 		.input(
 			z.object({
-				email: z.string().min(1, "Email is required!"),
-				password: z.string().min(1, "Password is required!"),
+				email: z.string().min(1, "Email is required."),
+				password: z.string().min(1, "Password is required."),
 			})
 		)
 		.mutation(async ({ ctx, input }) => {
