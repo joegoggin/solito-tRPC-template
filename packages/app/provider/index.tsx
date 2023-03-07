@@ -5,6 +5,7 @@ import SettingsContextProvider from "./context/SettingsContextProvider";
 import StatusContextProvider from "./context/StatusContextProvider";
 import UserContextProvider from "./context/UserContextProvider";
 import ColorsContextProvider from "./context/ColorsContextProvider";
+import NavBarContextProvider from "./context/NarBarContexProvider";
 
 export function Provider({ children }: { children: React.ReactNode }) {
 	return (
@@ -13,9 +14,11 @@ export function Provider({ children }: { children: React.ReactNode }) {
 				<UserContextProvider>
 					<SettingsContextProvider>
 						<ColorsContextProvider>
-							<NavigationProvider>
-								<Dripsy>{children}</Dripsy>
-							</NavigationProvider>
+							<NavBarContextProvider>
+								<NavigationProvider>
+									<Dripsy>{children}</Dripsy>
+								</NavigationProvider>
+							</NavBarContextProvider>
 						</ColorsContextProvider>
 					</SettingsContextProvider>
 				</UserContextProvider>

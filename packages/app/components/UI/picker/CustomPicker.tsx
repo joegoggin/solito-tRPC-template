@@ -8,7 +8,7 @@ import { type OptionType, OptionTypes } from "app/constants/optionType";
 import { getOptionLabelByValue } from "app/utils/getOptionLabelByValue";
 import { Colors } from "app/constants/Colors";
 import Button from "../Button";
-import CaretDownIcon from "app/components/icon/caret-down/CaretDownIcon";
+import CaretDownIcon from "app/components/icons/caret-down/CaretDownIcon";
 import { useColors } from "app/provider/context/ColorsContextProvider";
 
 type CustomPickerProps = {
