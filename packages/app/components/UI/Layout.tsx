@@ -12,6 +12,12 @@ import {
 import React, { type ReactNode } from "react";
 import { Platform } from "react-native";
 
+/*
+ ** TODO **
+ ** fix styling (the default layout styles you copied from work kinda suck) []
+ ** ** make sure nav bar is still properly styled []
+ */
+
 interface LayoutProps {
 	children: ReactNode;
 	isScrollable?: boolean;
