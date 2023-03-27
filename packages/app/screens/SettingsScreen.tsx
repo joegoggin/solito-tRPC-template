@@ -1,13 +1,14 @@
-import Layout from "app/components/UI/Layout";
-import Setting from "app/components/UI/Setting";
-import StatusMessages from "app/components/UI/StatusMessages";
+import { H1, useSx, View } from "dripsy";
+import React, { useEffect } from "react";
+
 import { NavBarLinks } from "app/constants/navBarLink";
 import { themeSettingsOptions } from "app/constants/options";
 import { OptionTypes } from "app/constants/optionType";
 import { useNavBar } from "app/provider/context/NarBarContexProvider";
 import { useSettings } from "app/provider/context/SettingsContextProvider";
-import { H1, useSx, View } from "dripsy";
-import React, { useEffect } from "react";
+import Layout from "app/components/UI/Layout";
+import Setting from "app/components/UI/Setting";
+import StatusMessages from "app/components/UI/StatusMessages";
 
 const SettingsScreen: React.FC = () => {
 	// context

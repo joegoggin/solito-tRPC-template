@@ -1,5 +1,6 @@
-import { NavBarLink } from "app/constants/navBarLink";
 import { createContext, ReactNode, useContext, useState } from "react";
+
+import { NavBarLink } from "app/constants/navBarLink";
 
 type NavBarContext = {
 	activeLink: NavBarLink | null;

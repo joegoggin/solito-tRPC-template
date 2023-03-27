@@ -1,12 +1,12 @@
-import { useSx, ActivityIndicator, View, H1, SxProp } from "dripsy";
+import { useSx, ActivityIndicator, View, H1 } from "dripsy";
 import React from "react";
 
 import Layout from "./Layout";
 
-interface LoadingSpinnerProps {
+type LoadingSpinnerProps = {
 	color: string;
 	size: "small" | "large";
-}
+};
 
 /*
 	props: (color: string, size: "small" | "large")

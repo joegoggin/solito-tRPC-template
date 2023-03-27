@@ -1,4 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
 import { getDefaultStackScreenOptions } from "app/constants/defaultStackScreenOptions";
 import { useColors } from "app/provider/context/ColorsContextProvider";
 import SignInScreen from "app/screens/auth/SignInScreen";

@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 
 import { H1 } from "dripsy";
-import Layout from "app/components/UI/Layout";
 import { useNavBar } from "app/provider/context/NarBarContexProvider";
 import { NavBarLinks } from "app/constants/navBarLink";
+import Layout from "app/components/UI/Layout";
 
 const AdminOnlyScreen: React.FC = () => {
 	// context

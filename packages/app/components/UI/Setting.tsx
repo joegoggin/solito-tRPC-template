@@ -1,10 +1,11 @@
 import { H2, Text, useSx, View } from "dripsy";
-import React, { useEffect } from "react";
 import { Platform } from "react-native";
+import React, { useEffect } from "react";
+
 import { type Option } from "app/types/Option";
 import { type OptionType } from "app/constants/optionType";
-import CustomPicker from "./picker/CustomPicker";
 import { useSettings } from "app/provider/context/SettingsContextProvider";
+import CustomPicker from "./picker/CustomPicker";
 
 type SettingProps = {
 	title: string;

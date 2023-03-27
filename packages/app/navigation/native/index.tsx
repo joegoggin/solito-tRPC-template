@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { useUser } from "app/provider/context/UserContextProvider";
 
+import { useUser } from "app/provider/context/UserContextProvider";
 import AuthNavigator from "./AuthNavigator";
 import MainNavigator from "./MainNavigator";
 

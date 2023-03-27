@@ -1,8 +1,8 @@
 import { initTRPC, TRPCError } from "@trpc/server";
 import { type CreateNextContextOptions } from "@trpc/server/adapters/next";
 
-import prisma from "db";
 import { ZodError } from "zod";
+import prisma from "db";
 
 export const createTRPCContext = (_opts: CreateNextContextOptions) => {
 	const { req, res } = _opts;

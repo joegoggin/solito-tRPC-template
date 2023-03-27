@@ -1,5 +1,5 @@
 import { Link } from "solito/link";
-import { SxProp, Text, useSx, View } from "dripsy";
+import { Text, useSx, View, type SxProp } from "dripsy";
 import React, { ReactElement } from "react";
 
 export type NavLinkProps = {

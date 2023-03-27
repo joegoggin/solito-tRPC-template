@@ -16,14 +16,14 @@ import { api } from "app/utils/trpc";
 import { useStatus } from "./StatusContextProvider";
 import { setAuthToken } from "../trpc/TRPCProvider";
 
-interface UserContext {
+type UserContext = {
 	user: Partial<User> | null;
 	token: string | null;
 	isInit: boolean;
 	setUser: (user: User) => void;
 	setUserData: (userId: string, token: string) => void;
 	clearUserData: () => void;
-}
+};
 
 const UserCtx = createContext<UserContext>({
 	user: null,

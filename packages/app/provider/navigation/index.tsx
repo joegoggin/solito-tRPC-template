@@ -6,9 +6,9 @@ interface Screens {
 	[key: string]: string;
 }
 
-interface NavigationConfig {
+type NavigationConfig = {
 	auth: { screens: Screens };
-}
+};
 
 export function NavigationProvider({ children }: { children: ReactNode }) {
 	return (

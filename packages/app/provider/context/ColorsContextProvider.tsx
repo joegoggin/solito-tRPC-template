@@ -1,9 +1,9 @@
 import {
-	type ReactNode,
 	createContext,
 	useContext,
 	useState,
 	useEffect,
+	type ReactNode,
 } from "react";
 import { useSettings } from "./SettingsContextProvider";
 

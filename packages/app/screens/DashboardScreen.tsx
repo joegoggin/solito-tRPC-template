@@ -1,7 +1,6 @@
 import { H1, Text, useSx, View } from "dripsy";
 
 import { useUser } from "app/provider/context/UserContextProvider";
-import { Colors } from "app/constants/Colors";
 import Layout from "app/components/UI/Layout";
 import Button from "app/components/UI/Button";
 import { useColors } from "app/provider/context/ColorsContextProvider";

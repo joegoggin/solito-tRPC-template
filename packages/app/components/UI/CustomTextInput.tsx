@@ -1,11 +1,11 @@
-import { SxProp } from "dripsy";
+import { type SxProp } from "dripsy";
 import { TextInput, TextStyle, StyleSheet } from "react-native";
 import React, { useState } from "react";
 
 import { Colors } from "app/constants/Colors";
 import { useColors } from "app/provider/context/ColorsContextProvider";
 
-export interface CustomInputProps {
+export type CustomInputProps = {
 	placeholder: string;
 	value: string;
 	onChangeText: (enteredText: string) => void;
@@ -14,7 +14,7 @@ export interface CustomInputProps {
 	inputColor?: string;
 	isPassword?: boolean;
 	autoFocus?: boolean;
-}
+};
 
 /*
 	props: (placeholder: string, value: string, onChangeText: (enteredText) => void, style?: SxProp, isPassword?: boolean)

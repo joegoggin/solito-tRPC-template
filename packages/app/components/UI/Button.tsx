@@ -1,14 +1,14 @@
 import { type ReactNode } from "react";
-import { SxProp, Text, useSx } from "dripsy";
+import { Text, useSx, type SxProp } from "dripsy";
 import { Pressable } from "react-native";
 
-export interface ButtonProps {
+export type ButtonProps = {
 	color: string;
 	onPress: () => void;
 	children: ReactNode;
 	style?: SxProp;
 	title?: string;
-}
+};
 
 const Button: React.FC<ButtonProps> = ({
 	color,

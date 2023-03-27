@@ -6,7 +6,7 @@ import {
 	useState,
 } from "react";
 
-interface StatusContext {
+type StatusContext = {
 	loading: boolean;
 	error: string | null;
 	success: string | null;
@@ -14,7 +14,7 @@ interface StatusContext {
 	setError: (error: string | null) => void;
 	setSuccess: (success: string | null) => void;
 	clearStatus: () => void;
-}
+};
 
 const StatusCtx = createContext<StatusContext>({
 	loading: false,

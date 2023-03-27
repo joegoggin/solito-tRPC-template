@@ -1,14 +1,14 @@
 import { Platform } from "react-native";
-import { View, SxProp, useSx } from "dripsy";
+import { View, useSx, type SxProp } from "dripsy";
 import React, { ReactNode } from "react";
 
 import { useKey } from "app/utils/hooks/useKey";
 
-interface FormProps {
+type FormProps = {
 	onSubmit: () => void;
 	children: ReactNode;
 	style?: SxProp;
-}
+};
 
 /*
 	props: (onSubmit: () => void, style?: SxProp)

@@ -1,15 +1,14 @@
+import { H1, Text, useSx, View, type SxProp } from "dripsy";
 import { Picker } from "@react-native-picker/picker";
-import { H1, SxProp, Text, useSx, View } from "dripsy";
 import { Modal, Platform, Pressable } from "react-native";
 import React, { useState } from "react";
 
 import { type Option } from "app/types/Option";
 import { type OptionType, OptionTypes } from "app/constants/optionType";
 import { getOptionLabelByValue } from "app/utils/getOptionLabelByValue";
-import { Colors } from "app/constants/Colors";
+import { useColors } from "app/provider/context/ColorsContextProvider";
 import Button from "../Button";
 import CaretDownIcon from "app/components/icons/caret-down/CaretDownIcon";
-import { useColors } from "app/provider/context/ColorsContextProvider";
 
 type CustomPickerProps = {
 	title: string;

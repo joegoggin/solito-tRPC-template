@@ -3,13 +3,13 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { RoleEnum } from "server/models/enums/Role";
 import { useUser } from "app/provider/context/UserContextProvider";
 import { getDefaultTabScreenOptions } from "app/constants/defaultTabScreenOptions";
+import { useColors } from "app/provider/context/ColorsContextProvider";
 import DashboardIcon from "app/components/icons/dashboard/DashboardIcon";
 import DashboardScreen from "app/screens/DashboardScreen";
 import AdminOnlyScreen from "app/screens/admin/AdminOnlyScreen";
 import LockIcon from "app/components/icons/lock/LockIcon";
 import SettingsIcon from "app/components/icons/settings/SettingsIcon";
 import SettingsScreen from "app/screens/SettingsScreen";
-import { useColors } from "app/provider/context/ColorsContextProvider";
 
 const Tab = createBottomTabNavigator<{
 	dashboard: undefined;

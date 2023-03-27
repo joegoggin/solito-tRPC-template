@@ -1,6 +1,6 @@
-import NavBar from "app/navigation/web/NavBar";
 import { useColors } from "app/provider/context/ColorsContextProvider";
 import { useStatus } from "app/provider/context/StatusContextProvider";
+import { Platform } from "react-native";
 import {
 	ActivityIndicator,
 	H1,
@@ -10,18 +10,13 @@ import {
 	View,
 } from "dripsy";
 import React, { type ReactNode } from "react";
-import { Platform } from "react-native";
 
-/*
- ** TODO **
- ** fix styling (the default layout styles you copied from work kinda suck) []
- ** ** make sure nav bar is still properly styled []
- */
+import NavBar from "app/navigation/web/NavBar";
 
-interface LayoutProps {
+type LayoutProps = {
 	children: ReactNode;
 	isScrollable?: boolean;
-}
+};
 
 const Layout: React.FC<LayoutProps> = ({ children, isScrollable = true }) => {
 	// context

@@ -105,7 +105,7 @@ const NavBar: React.FC = () => {
 	const styles = {
 		container: sx({
 			backgroundColor: "brown",
-			width: ["100%", "100%", "30%"],
+			width: ["100%", "100%", "25%"],
 		}),
 		links: sx({
 			paddingX: 5,
