@@ -50,6 +50,10 @@ const SignInScreen: React.FC = () => {
 	const sx = useSx();
 
 	const styles = {
+		container: sx({
+			justifyContent: "center",
+			alignItems: "center",
+		}),
 		title: sx({
 			marginBottom: 30,
 		}),
@@ -70,32 +74,34 @@ const SignInScreen: React.FC = () => {
 
 	return (
 		<Layout>
-			<H1>Sign In</H1>
-			<Form onSubmit={handleSignIn}>
-				<StatusMessages />
-				<CustomTextInput
-					style={styles.email}
-					placeholder="Email"
-					value={email}
-					onChangeText={handleChangeText(setEmail)}
-				/>
-				<CustomTextInput
-					style={styles.password}
-					placeholder="Password"
-					value={password}
-					onChangeText={handleChangeText(setPassword)}
-					isPassword={true}
-				/>
-				<View style={styles.buttonContainer}>
-					<Button
-						style={styles.button}
-						onPress={handleSignIn}
-						color={colors.blueDark}
-					>
-						Sign In
-					</Button>
-				</View>
-			</Form>
+			<View sx={styles.container}>
+				<H1>Sign In</H1>
+				<Form onSubmit={handleSignIn}>
+					<StatusMessages />
+					<CustomTextInput
+						style={styles.email}
+						placeholder="Email"
+						value={email}
+						onChangeText={handleChangeText(setEmail)}
+					/>
+					<CustomTextInput
+						style={styles.password}
+						placeholder="Password"
+						value={password}
+						onChangeText={handleChangeText(setPassword)}
+						isPassword={true}
+					/>
+					<View style={styles.buttonContainer}>
+						<Button
+							style={styles.button}
+							onPress={handleSignIn}
+							color={colors.blueDark}
+						>
+							Sign In
+						</Button>
+					</View>
+				</Form>
+			</View>
 		</Layout>
 	);
 };

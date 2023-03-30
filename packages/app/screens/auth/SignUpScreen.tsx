@@ -69,6 +69,10 @@ const SignUpScreen: React.FC = () => {
 	const sx = useSx();
 
 	const styles = {
+		containter: sx({
+			justifyContent: "center",
+			alignItems: "center",
+		}),
 		title: sx({
 			marginBottom: 30,
 		}),
@@ -96,54 +100,56 @@ const SignUpScreen: React.FC = () => {
 
 	return (
 		<Layout>
-			<H1>Sign Up</H1>
-			<StatusMessages />
-			<Form onSubmit={handleSignUp}>
-				<View style={styles.inputContainer}>
-					<View sx={styles.nameContainer}>
+			<View sx={styles.containter}>
+				<H1>Sign Up</H1>
+				<StatusMessages />
+				<Form onSubmit={handleSignUp}>
+					<View style={styles.inputContainer}>
+						<View sx={styles.nameContainer}>
+							<CustomTextInput
+								style={{ ...styles.name, marginRight: "10%" }}
+								placeholder="First Name"
+								value={fName}
+								onChangeText={handleChangeText(setFName)}
+							/>
+							<CustomTextInput
+								style={styles.name}
+								placeholder="Last Name"
+								value={lName}
+								onChangeText={handleChangeText(setLName)}
+							/>
+						</View>
 						<CustomTextInput
-							style={{ ...styles.name, marginRight: "10%" }}
-							placeholder="First Name"
-							value={fName}
-							onChangeText={handleChangeText(setFName)}
+							style={styles.input}
+							placeholder="Email"
+							value={email}
+							onChangeText={handleChangeText(setEmail)}
 						/>
 						<CustomTextInput
-							style={styles.name}
-							placeholder="Last Name"
-							value={lName}
-							onChangeText={handleChangeText(setLName)}
+							style={styles.input}
+							placeholder="Password"
+							value={password}
+							onChangeText={handleChangeText(setPassword)}
+							isPassword={true}
+						/>
+						<CustomTextInput
+							placeholder="Confirm Password"
+							value={confirm}
+							onChangeText={handleChangeText(setConfirm)}
+							isPassword={true}
 						/>
 					</View>
-					<CustomTextInput
-						style={styles.input}
-						placeholder="Email"
-						value={email}
-						onChangeText={handleChangeText(setEmail)}
-					/>
-					<CustomTextInput
-						style={styles.input}
-						placeholder="Password"
-						value={password}
-						onChangeText={handleChangeText(setPassword)}
-						isPassword={true}
-					/>
-					<CustomTextInput
-						placeholder="Confirm Password"
-						value={confirm}
-						onChangeText={handleChangeText(setConfirm)}
-						isPassword={true}
-					/>
-				</View>
-				<View style={styles.buttonContainer}>
-					<Button
-						style={styles.button}
-						onPress={handleSignUp}
-						color={Colors.blueDark}
-					>
-						Sign Up
-					</Button>
-				</View>
-			</Form>
+					<View style={styles.buttonContainer}>
+						<Button
+							style={styles.button}
+							onPress={handleSignUp}
+							color={Colors.blueDark}
+						>
+							Sign Up
+						</Button>
+					</View>
+				</Form>
+			</View>
 		</Layout>
 	);
 };

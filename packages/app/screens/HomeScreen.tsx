@@ -29,6 +29,10 @@ const HomeScreen: React.FC = () => {
 	const sx = useSx();
 
 	const styles = {
+		container: sx({
+			justifyContent: "center",
+			alignItems: "center",
+		}),
 		title: sx({
 			color: "green",
 			textAlign: "center",
@@ -48,21 +52,23 @@ const HomeScreen: React.FC = () => {
 
 	return (
 		<Layout>
-			<H1 sx={styles.title}>Solito App with tRPC Template</H1>
-			<H3 sx={styles.message}>{data?.message}</H3>
-			<View sx={styles.buttons}>
-				<Button
-					color={colors.blueDark}
-					onPress={handleSignUpNavigation}
-				>
-					Sign Up
-				</Button>
-				<Button
-					color={colors.blueLight}
-					onPress={handleSignInNavigation}
-				>
-					Sign In
-				</Button>
+			<View sx={styles.container}>
+				<H1 sx={styles.title}>Solito App with tRPC Template</H1>
+				<H3 sx={styles.message}>{data?.message}</H3>
+				<View sx={styles.buttons}>
+					<Button
+						color={colors.blueDark}
+						onPress={handleSignUpNavigation}
+					>
+						Sign Up
+					</Button>
+					<Button
+						color={colors.blueLight}
+						onPress={handleSignInNavigation}
+					>
+						Sign In
+					</Button>
+				</View>
 			</View>
 		</Layout>
 	);
