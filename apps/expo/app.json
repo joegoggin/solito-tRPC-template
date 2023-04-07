@@ -1,9 +1,9 @@
 {
   "expo": {
-    "name": "solito-blank",
-    "slug": "solito-blank",
+    "name": "solito-tRPC-template",
+    "slug": "solito-tRPC-template",
     "version": "1.0.0",
-    "scheme": "solito-blank",
+    "scheme": "solito-tRPC-template",
     "platforms": [
       "ios",
       "android"
