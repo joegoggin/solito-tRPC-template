@@ -23,10 +23,15 @@ const DashboardScreen: React.FC = () => {
 	const sx = useSx();
 
 	const styles = {
+		container: sx({
+			justifyContent: "center",
+			alignItems: "center",
+		}),
 		infoContainer: sx({
 			marginBottom: 20,
 			justifyContent: "center",
-			alignItems: "center",
+			alignItems: "flex-start",
+			width: ["50%", "50%", "15%"],
 		}),
 		textContainer: sx({
 			flexDirection: "row",
@@ -34,19 +39,19 @@ const DashboardScreen: React.FC = () => {
 		}),
 		key: sx({
 			marginRight: 10,
-			color: "green",
+			color: "primary",
 			fontSize: 16,
 			fontWeight: "bold",
 		}),
 		value: sx({
-			color: "brown",
+			color: "dark",
 			fontSize: 16,
 		}),
 	};
 
 	return (
 		<Layout>
-			<View>
+			<View sx={styles.container}>
 				<H1>Welcome {user?.fName}!</H1>
 				<View style={styles.infoContainer}>
 					<View sx={styles.textContainer}>
@@ -68,7 +73,7 @@ const DashboardScreen: React.FC = () => {
 				</View>
 				<Button
 					style={{ alignSelf: "center" }}
-					color={colors.brown}
+					color={colors.dark}
 					onPress={clearUserData}
 				>
 					Sign Out

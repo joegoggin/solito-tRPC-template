@@ -29,7 +29,7 @@ const NavLink: React.FC<NavLinkProps> = ({ label, route, isActive, icon }) => {
 		}),
 		text: {
 			...sx({
-				color: isActive ? "green" : "white",
+				color: isActive ? "primary" : "light",
 				fontSize: 20,
 			}),
 			marginLeft: 2,

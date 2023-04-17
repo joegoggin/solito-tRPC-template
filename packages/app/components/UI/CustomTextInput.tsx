@@ -1,9 +1,9 @@
 import { type SxProp } from "dripsy";
-import { TextInput, TextStyle, StyleSheet } from "react-native";
+import { TextInput, TextStyle, StyleSheet, Platform } from "react-native";
 import React, { useState } from "react";
 
-import { Colors } from "app/constants/Colors";
 import { useColors } from "app/provider/context/ColorsContextProvider";
+import { useSettings } from "app/provider/context/SettingsContextProvider";
 
 export type CustomInputProps = {
 	placeholder: string;
@@ -35,10 +35,11 @@ const CustomTextInput: React.FC<CustomInputProps> = ({
 
 	// context
 	const { colors } = useColors();
+	const { isDarkTheme } = useSettings();
 
 	// set defaults
-	color = color ? color : colors.green;
-	inputColor = inputColor ? inputColor : colors.brown;
+	color = color ? color : colors.primary;
+	inputColor = inputColor ? inputColor : colors.dark;
 
 	// styles
 	const styles = StyleSheet.create({
@@ -66,7 +67,7 @@ const CustomTextInput: React.FC<CustomInputProps> = ({
 				style as TextStyle,
 			]}
 			placeholder={placeholder}
-			placeholderTextColor={isFocused ? color : Colors.brown}
+			placeholderTextColor={isFocused ? color : colors.dark}
 			value={value}
 			onChangeText={onChangeText}
 			autoCapitalize="none"

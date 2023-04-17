@@ -30,7 +30,7 @@ const Button: React.FC<ButtonProps> = ({
 			borderRadius: 10,
 		}),
 		text: sx({
-			color: color === "white" ? "brown" : "white",
+			color: color === "light" ? "dark" : "light",
 			fontSize: 20,
 			textAlign: "center",
 		}),

@@ -45,8 +45,8 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
 	const { colors } = useColors();
 
 	// set defaults
-	inputColor = inputColor ? inputColor : colors.green;
-	backgroundColor = backgroundColor ? backgroundColor : colors.white;
+	inputColor = inputColor ? inputColor : colors.primary;
+	backgroundColor = backgroundColor ? backgroundColor : colors.light;
 
 	// event handlers
 	/*
@@ -113,7 +113,7 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
 		},
 		ios: {
 			...sx({
-				backgroundColor: "white",
+				backgroundColor: "light",
 				borderColor: inputColor,
 				color: inputColor,
 			}),
@@ -135,7 +135,7 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
 			flex: 1,
 			justifyContent: "center",
 			alignItems: "center",
-			backgroundColor: "white",
+			backgroundColor: "light",
 		}),
 		android: {
 			...sx({

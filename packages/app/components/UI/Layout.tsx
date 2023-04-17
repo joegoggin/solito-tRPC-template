@@ -33,7 +33,7 @@ const Layout: React.FC<LayoutProps> = ({ children, isScrollable = true }) => {
 		}),
 		layout: sx({
 			flex: 1,
-			backgroundColor: "white",
+			backgroundColor: "light",
 		}),
 		container: sx({
 			flexGrow: 1,

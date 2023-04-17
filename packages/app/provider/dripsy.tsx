@@ -9,27 +9,26 @@ export function Dripsy({ children }: { children: React.ReactNode }) {
 	const [theme, setTheme] = useState<Theme>(
 		makeTheme({
 			colors: {
-				blueDark: colors.blueDark,
-				white: colors.white,
-				brown: colors.brown,
+				primary: colors.primary,
+				light: colors.light,
+				dark: colors.dark,
 				green: colors.green,
-				greenLight: colors.greenLight,
 				red: colors.red,
 			},
 			text: {
 				h1: {
-					color: "brown",
+					color: "dark",
 					textAlign: "center",
 				},
 				h2: {
-					color: "green",
+					color: "primary",
 				},
 				h3: {
-					color: "brown",
+					color: "dark",
 				},
 				p: {
 					fontSize: 16,
-					color: "brown",
+					color: "dark",
 				},
 			},
 		})
@@ -40,11 +39,10 @@ export function Dripsy({ children }: { children: React.ReactNode }) {
 			return {
 				...prev,
 				colors: {
-					blueDark: colors.blueDark,
-					white: colors.white,
-					brown: colors.brown,
+					primary: colors.primary,
+					light: colors.light,
+					dark: colors.dark,
 					green: colors.green,
-					greenLight: colors.greenLight,
 					red: colors.red,
 				},
 			};

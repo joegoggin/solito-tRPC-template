@@ -95,7 +95,7 @@ const SignInScreen: React.FC = () => {
 						<Button
 							style={styles.button}
 							onPress={handleSignIn}
-							color={colors.blueDark}
+							color={colors.dark}
 						>
 							Sign In
 						</Button>

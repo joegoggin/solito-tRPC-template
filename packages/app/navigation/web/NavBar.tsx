@@ -22,10 +22,10 @@ const NavBar: React.FC = () => {
 	// functions
 	const getIconColor = (link: NavBarLink) => {
 		if (activeLink === link) {
-			return colors.green;
+			return colors.primary;
 		}
 
-		return colors.white;
+		return colors.light;
 	};
 
 	// constants
@@ -104,7 +104,7 @@ const NavBar: React.FC = () => {
 
 	const styles = {
 		container: sx({
-			backgroundColor: "brown",
+			backgroundColor: "dark",
 			width: ["100%", "100%", "25%"],
 		}),
 		links: sx({
@@ -113,14 +113,14 @@ const NavBar: React.FC = () => {
 		}),
 		title: {
 			...sx({
-				color: "white",
+				color: "light",
 				textAlign: "center",
 			}),
 			marginBottom: 4,
 		},
 		hamburgerButton: {
 			...sx({
-				backgroundColor: "white",
+				backgroundColor: "light",
 				paddingTop: 4,
 				paddingLeft: 4,
 			}),
@@ -142,9 +142,9 @@ const NavBar: React.FC = () => {
 								sx={styles.closeButton}
 								onPress={toggleNav}
 							>
-								<CloseIcon size={30} color={colors.white} />
+								<CloseIcon size={30} color={colors.light} />
 							</Pressable>
-							<H2 sx={styles.title}>Milo Workroom</H2>
+							<H2 sx={styles.title}>Solito App with tRPC</H2>
 							<View sx={styles.links}>
 								{links.map((link) => (
 									<NavLink
@@ -162,7 +162,7 @@ const NavBar: React.FC = () => {
 							sx={styles.hamburgerButton}
 							onPress={toggleNav}
 						>
-							<GiHamburgerMenu size={30} color={colors.brown} />
+							<GiHamburgerMenu size={30} color={colors.dark} />
 						</Pressable>
 					)}
 				</>

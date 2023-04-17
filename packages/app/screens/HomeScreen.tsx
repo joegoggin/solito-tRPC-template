@@ -34,11 +34,11 @@ const HomeScreen: React.FC = () => {
 			alignItems: "center",
 		}),
 		title: sx({
-			color: "green",
+			color: "primary",
 			textAlign: "center",
 		}),
 		message: sx({
-			color: "brown",
+			color: "dark",
 			textAlign: "center",
 		}),
 		buttons: sx({
@@ -57,13 +57,13 @@ const HomeScreen: React.FC = () => {
 				<H3 sx={styles.message}>{data?.message}</H3>
 				<View sx={styles.buttons}>
 					<Button
-						color={colors.blueDark}
+						color={colors.primary}
 						onPress={handleSignUpNavigation}
 					>
 						Sign Up
 					</Button>
 					<Button
-						color={colors.blueLight}
+						color={colors.dark}
 						onPress={handleSignInNavigation}
 					>
 						Sign In

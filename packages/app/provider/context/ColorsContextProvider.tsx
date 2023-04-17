@@ -8,12 +8,11 @@ import {
 import { useSettings } from "./SettingsContextProvider";
 
 export type Colors = {
-	blueDark: string;
-	blueLight: string;
-	white: string;
-	brown: string;
+	primary: string;
+	light: string;
+	dark: string;
 	green: string;
-	greenLight: string;
+	yellow: string;
 	red: string;
 };
 
@@ -22,23 +21,18 @@ type ColorsContext = {
 };
 
 const lightTheme: Colors = {
-	blueDark: "#064789",
-	blueLight: "#427AA1",
-	white: "#EBF2FA",
-	brown: "#423629",
-	green: "#4F5D2F",
-	greenLight: "#95C623",
-	red: "#D64045",
+	primary: "#4F5D2F",
+	light: "#EAFFDA",
+	dark: "#1A181B",
+	green: "#95C623",
+	yellow: "#95C623",
+	red: "#C33149",
 };
 
 const darkTheme: Colors = {
-	blueDark: "#064789",
-	blueLight: "#427AA1",
-	white: "#423629",
-	brown: "#EBF2FA",
-	green: "#4F5D2F",
-	greenLight: "#95C623",
-	red: "#D64045",
+	...lightTheme,
+	dark: lightTheme.light,
+	light: lightTheme.dark,
 };
 
 const ColorsCtx = createContext<ColorsContext>({

@@ -2,7 +2,6 @@ import { H1, useSx, View } from "dripsy";
 import React, { useState } from "react";
 
 import { handleChangeText } from "app/utils/handleChangeText";
-import { Colors } from "app/constants/Colors";
 import { api } from "app/utils/trpc";
 import { useStatus } from "app/provider/context/StatusContextProvider";
 import { onError } from "app/utils/onError";
@@ -14,6 +13,7 @@ import StatusMessages from "app/components/UI/StatusMessages";
 import CustomTextInput from "app/components/UI/CustomTextInput";
 import Form from "app/components/UI/Form";
 import Layout from "app/components/UI/Layout";
+import { useColors } from "app/provider/context/ColorsContextProvider";
 
 const SignUpScreen: React.FC = () => {
 	// state
@@ -26,6 +26,7 @@ const SignUpScreen: React.FC = () => {
 	// context
 	const { setLoading, setError } = useStatus();
 	const { setUserData } = useUser();
+	const { colors } = useColors();
 
 	// mutation
 	const createUser = api.user.createUser.useMutation({
@@ -143,7 +144,7 @@ const SignUpScreen: React.FC = () => {
 						<Button
 							style={styles.button}
 							onPress={handleSignUp}
-							color={Colors.blueDark}
+							color={colors.dark}
 						>
 							Sign Up
 						</Button>

@@ -56,7 +56,7 @@ const Setting: React.FC<SettingProps> = ({
 			fontSize: 18,
 			marginRight: 10,
 			marginBottom: [10, 10, 0],
-			color: "brown",
+			color: "dark",
 		}),
 	};
 
